@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Umrah, step by step — a visual guide for first-timers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#17140F;
+    --gold:#B08A2E;
+    --gold-soft:#E9DDB8;
+    --marble:#F4F3EE;
+    --marble-2:#E8E6DE;
+    --green:#1E7A4C;
+    --green-soft:#DCEEE3;
+    --stone:#7C766B;
+    --red:#B23A2E;
+    --red-soft:#F6E0DC;
+    --paper:#FFFFFF;
+    --body:'Atkinson Hyperlegible',system-ui,sans-serif;
+    --display:'Amiri',Georgia,serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{margin:0;background:var(--marble);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55}
+  a{color:var(--green)}
+  h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.15;margin:0}
+  h1{font-size:2.6rem}
+  h2{font-size:2rem}
+  h3{font-size:1.35rem;margin-bottom:.4rem}
+  p{margin:.4rem 0 .9rem}
+  .wrap{max-width:680px;margin:0 auto;padding:0 20px}
+
+  /* ---------- Hero ---------- */
+  header.hero{background:var(--ink);color:var(--marble);padding:44px 0 36px;border-bottom:6px solid var(--gold)}
+  header.hero .ar{font-family:var(--display);font-size:2rem;color:var(--gold);direction:rtl;margin-bottom:6px}
+  header.hero p.lead{font-size:1.1rem;color:#D9D5CB;max-width:34ch;margin-top:12px}
+  .keys{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:22px;font-size:.95rem;color:#D9D5CB}
+  .keys span{display:inline-flex;align-items:center;gap:7px}
+  .dot{width:12px;height:12px;border-radius:50%;display:inline-block}
+  .dot.must{background:var(--gold)}
+  .dot.sunnah{background:var(--green)}
+  .dot.free{background:#D9D5CB}
+
+  /* ---------- Route map ---------- */
+  .route{background:var(--paper);padding:26px 0 8px;border-bottom:1px solid var(--marble-2)}
+  .route svg{width:100%;height:auto;display:block}
+  .route .hint{font-size:.9rem;color:var(--stone);margin:6px 0 14px}
+  .route a{color:inherit;text-decoration:none}
+  .route text{font-family:var(--body);font-size:15px;fill:var(--ink)}
+  .route text.n{font-family:var(--display);font-size:17px;font-weight:700;fill:var(--paper)}
+  .route text.sub{font-size:12.5px;fill:var(--stone)}
+  .route a:focus-visible circle{stroke:var(--green);stroke-width:4}
+
+  /* ---------- Stations ---------- */
+  section.station{padding:40px 0 28px;border-bottom:1px solid var(--marble-2)}
+  section.station:nth-of-type(even){background:var(--paper)}
+  .stnum{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;background:var(--ink);color:var(--paper);font-family:var(--display);font-size:1.25rem;font-weight:700;margin-right:10px;vertical-align:middle}
+  .where{color:var(--stone);font-size:.95rem;margin:6px 0 18px}
+
+  .tag{display:inline-block;font-size:.8rem;padding:2px 9px;border-radius:999px;margin-left:6px;vertical-align:middle;font-weight:700}
+  .tag.must{background:var(--gold-soft);color:#6E5312}
+  .tag.sunnah{background:var(--green-soft);color:var(--green)}
+  .tag.free{background:var(--marble-2);color:var(--stone)}
+
+  figure{margin:18px 0}
+  figure svg{width:100%;height:auto;display:block;background:var(--paper);border:1px solid var(--marble-2);border-radius:6px}
+  section.station:nth-of-type(even) figure svg{background:var(--marble)}
+  figcaption{font-size:.9rem;color:var(--stone);margin-top:8px}
+  .dia text{font-family:var(--body);font-size:13px;fill:var(--ink)}
+  .dia text.small{font-size:11.5px;fill:var(--stone)}
+  .dia text.ar{font-family:var(--display);font-size:15px}
+
+  /* Say-this card */
+  .say{background:var(--paper);border-left:5px solid var(--gold);padding:14px 18px;margin:16px 0;border-radius:0 6px 6px 0}
+  section.station:nth-of-type(even) .say{background:var(--marble)}
+  .say .lbl{font-weight:700;font-size:.9rem;color:#6E5312;margin-bottom:6px}
+  .say .arabic{font-family:var(--display);font-size:1.55rem;direction:rtl;text-align:right;line-height:1.9;margin:4px 0}
+  .say .tr{font-style:italic;margin:6px 0 2px}
+  .say .mean{font-size:.95rem;color:var(--stone);margin:0}
+  .say .note{font-size:.85rem;color:var(--stone);margin-top:8px;border-top:1px dashed var(--marble-2);padding-top:6px}
+
+  /* Do / Don't */
+  .dd{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0}
+  @media (max-width:520px){.dd{grid-template-columns:1fr}}
+  .dd div{padding:12px 14px;border-radius:6px}
+  .dd .do{background:var(--green-soft)}
+  .dd .dont{background:var(--red-soft)}
+  .dd strong{display:block;margin-bottom:6px}
+  .dd .do strong{color:var(--green)}
+  .dd .dont strong{color:var(--red)}
+  .dd ul{margin:0;padding-left:18px}
+  .dd li{margin:4px 0}
+
+  ol.steps{padding-left:0;list-style:none;margin:14px 0;counter-reset:s}
+  ol.steps li{position:relative;padding-left:40px;margin:10px 0;counter-increment:s}
+  ol.steps li::before{content:counter(s);position:absolute;left:0;top:1px;width:28px;height:28px;border-radius:50%;background:var(--gold-soft);color:#6E5312;font-weight:700;text-align:center;line-height:28px;font-size:.95rem}
+  ul.plain{padding-left:20px;margin:8px 0}
+  ul.plain li{margin:5px 0}
+
+  /* Stop strip */
+  .stop{background:var(--ink);color:var(--marble);padding:14px 18px;border-radius:6px;margin:18px 0 6px}
+  .stop strong{color:var(--gold);display:block;margin-bottom:4px}
+  .stop ul{margin:0;padding-left:18px}
+  .stop li{margin:4px 0}
+
+  /* Counter */
+  .counter{background:var(--ink);color:var(--marble);border-radius:10px;padding:18px;margin:18px 0;text-align:center}
+  .counter .big{font-family:var(--display);font-size:4rem;line-height:1;color:var(--gold)}
+  .counter .state{margin:6px 0 12px;color:#D9D5CB}
+  .counter button{font-family:var(--body);font-size:1rem;font-weight:700;padding:12px 18px;border-radius:8px;border:0;cursor:pointer;margin:4px}
+  .counter .go{background:var(--gold);color:var(--ink)}
+  .counter .reset{background:transparent;color:#D9D5CB;border:1px solid #5a5548}
+  .counter button:focus-visible{outline:3px solid var(--green);outline-offset:2px}
+  .pips{display:flex;justify-content:center;gap:6px;margin-bottom:10px}
+  .pips i{width:14px;height:14px;border-radius:50%;border:2px solid var(--gold);display:inline-block}
+  .pips i.on{background:var(--gold)}
+
+  /* Ihram figure grid */
+  .fig2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media (max-width:520px){.fig2{grid-template-columns:1fr}}
+
+  footer{padding:36px 0 50px;color:var(--stone);font-size:.95rem}
+  footer .ar{font-family:var(--display);font-size:1.6rem;color:var(--ink);direction:rtl;text-align:right}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="ar">لَبَّيْكَ اللَّهُمَّ عُمْرَةً</div>
+    <h1>Umrah, step by step</h1>
+    <p class="lead">Six stations, one fixed order. What you do, what you say, and what to avoid at each one.</p>
+    <div class="keys">
+      <span><i class="dot must"></i>Must do</span>
+      <span><i class="dot sunnah"></i>Sunnah (recommended)</span>
+      <span><i class="dot free"></i>Any time / your choice</span>
+    </div>
+  </div>
+</header>
+
+<!-- ================= ROUTE MAP ================= -->
+<div class="route">
+  <div class="wrap">
+    <p class="hint">Tap a station to jump to it. The order never changes.</p>
+    <svg viewBox="0 0 640 300" role="img" aria-label="Route map of the six Umrah stations in order">
+      <!-- rail -->
+      <path d="M50 70 H590" stroke="#E8E6DE" stroke-width="10" stroke-linecap="round" fill="none"/>
+      <path d="M50 70 H590" stroke="#B08A2E" stroke-width="3" fill="none"/>
+      <!-- loop at tawaf -->
+      <circle cx="266" cy="70" r="26" fill="none" stroke="#B08A2E" stroke-width="3"/>
+      <path d="M266 44 l6 -6 M266 44 l6 6" stroke="#B08A2E" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <!-- zigzag at sa'i -->
+      <path d="M452 70 l0 -22 M452 70 l0 22 M444 56 l8 -8 8 8 M444 84 l8 8 8 -8" stroke="#B08A2E" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+      <!-- stations -->
+      <a href="#s1"><g>
+        <circle cx="50" cy="70" r="20" fill="#17140F"/>
+        <text class="n" x="50" y="76" text-anchor="middle">1</text>
+        <text x="50" y="118" text-anchor="middle">Ihram</text>
+        <text class="sub" x="50" y="136" text-anchor="middle">at the Miqat</text>
+      </g></a>
+      <a href="#s2"><g>
+        <circle cx="158" cy="70" r="20" fill="#17140F"/>
+        <text class="n" x="158" y="76" text-anchor="middle">2</text>
+        <text x="158" y="118" text-anchor="middle">Enter</text>
+        <text class="sub" x="158" y="136" text-anchor="middle">the Haram</text>
+      </g></a>
+      <a href="#s3"><g>
+        <circle cx="266" cy="70" r="20" fill="#17140F"/>
+        <text class="n" x="266" y="76" text-anchor="middle">3</text>
+        <text x="266" y="118" text-anchor="middle">Tawaf</text>
+        <text class="sub" x="266" y="136" text-anchor="middle">7 circuits</text>
+      </g></a>
+      <a href="#s4"><g>
+        <circle cx="374" cy="70" r="20" fill="#17140F"/>
+        <text class="n" x="374" y="76" text-anchor="middle">4</text>
+        <text x="374" y="118" text-anchor="middle">Maqam</text>
+        <text class="sub" x="374" y="136" text-anchor="middle">2 rak'ahs + Zamzam</text>
+      </g></a>
+      <a href="#s5"><g>
+        <circle cx="482" cy="70" r="20" fill="#17140F"/>
+        <text class="n" x="482" y="76" text-anchor="middle">5</text>
+        <text x="482" y="118" text-anchor="middle">Sa'i</text>
+        <text class="sub" x="482" y="136" text-anchor="middle">7 laps</text>
+      </g></a>
+      <a href="#s6"><g>
+        <circle cx="590" cy="70" r="20" fill="#17140F"/>
+        <text class="n" x="590" y="76" text-anchor="middle">6</text>
+        <text x="590" y="118" text-anchor="middle">Hair</text>
+        <text class="sub" x="590" y="136" text-anchor="middle">shave / trim</text>
+      </g></a>
+
+      <!-- restriction band -->
+      <rect x="50" y="176" width="540" height="14" rx="7" fill="#E9DDB8"/>
+      <rect x="50" y="176" width="14" height="14" rx="7" fill="#B08A2E"/>
+      <rect x="576" y="176" width="14" height="14" rx="7" fill="#1E7A4C"/>
+      <text class="sub" x="50" y="216">Ihram rules apply from here…</text>
+      <text class="sub" x="590" y="216" text-anchor="end">…until your hair is cut</text>
+
+      <text x="50" y="262" class="sub">Talbiyah: keep saying it from station 1 until you begin station 3.</text>
+      <text x="50" y="284" class="sub">Dua, dhikr and Qur'an: any time, any station, any language.</text>
+    </svg>
+  </div>
+</div>
+
+<!-- ================= STATION 1 ================= -->
+<section class="station" id="s1">
+  <div class="wrap">
+    <h2><span class="stnum">1</span>Ihram <span class="tag must">must</span></h2>
+    <p class="where">At the Miqat — before the boundary, never after it.</p>
+
+    <p>Ihram is not the white cloth. It is the <strong>intention</strong> to begin Umrah, said at the Miqat. The cloth is only how a man dresses once he is in that state.</p>
+
+    <figure>
+      <svg class="dia" viewBox="0 0 640 330" role="img" aria-label="Diagram of the Miqat boundary around Makkah">
+        <circle cx="320" cy="165" r="118" fill="none" stroke="#B08A2E" stroke-width="3" stroke-dasharray="8 6"/>
+        <rect x="308" y="153" width="24" height="24" fill="#17140F"/>
+        <text x="320" y="200" text-anchor="middle">Makkah</text>
+        <text class="small" x="320" y="62" text-anchor="middle">Miqat boundary (dashed line)</text>
+        <!-- outside labels -->
+        <text x="60" y="110">From Madinah</text>
+        <text class="small" x="60" y="128">Dhul-Hulayfah (Abyar Ali)</text>
+        <text x="60" y="230">From Egypt, Europe,</text>
+        <text x="60" y="248">North Africa</text>
+        <text class="small" x="60" y="266">Al-Juhfah (Rabigh)</text>
+        <text x="470" y="110">From Riyadh, Gulf,</text>
+        <text x="470" y="128">Taif direction</text>
+        <text class="small" x="470" y="146">Qarn al-Manazil (As-Sail)</text>
+        <text x="470" y="230">From Yemen, and</text>
+        <text x="470" y="248">many Asia/Africa flights</text>
+        <text class="small" x="470" y="266">Yalamlam (Sa'diyyah)</text>
+        <!-- arrows in -->
+        <path d="M190 118 L226 140" stroke="#7C766B" stroke-width="2" marker-end="url(#ah)"/>
+        <path d="M190 238 L226 205" stroke="#7C766B" stroke-width="2" marker-end="url(#ah)"/>
+        <path d="M455 118 L418 140" stroke="#7C766B" stroke-width="2" marker-end="url(#ah)"/>
+        <path d="M455 238 L418 205" stroke="#7C766B" stroke-width="2" marker-end="url(#ah)"/>
+        <!-- jeddah -->
+        <circle cx="260" cy="165" r="5" fill="#1E7A4C"/>
+        <text class="small" x="250" y="150" text-anchor="end">Jeddah airport</text>
+        <text class="small" x="250" y="165" text-anchor="end">is inside the line</text>
+        <text class="small" x="320" y="308" text-anchor="middle">Flying to Jeddah? Make the intention on the plane when the crew announces the Miqat — dress before boarding.</text>
+        <defs><marker id="ah" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#7C766B"/></marker></defs>
+      </svg>
+      <figcaption>Whichever direction you come from, you cross a Miqat. Be in ihram before you do. Already in Makkah and want another Umrah? Go out to Masjid Aisha (Tan'eem) and make intention there.</figcaption>
+    </figure>
+
+    <h3>Before the intention <span class="tag sunnah">sunnah</span></h3>
+    <ol class="steps">
+      <li>Trim nails, remove body hair, tidy moustache.</li>
+      <li>Full bath (ghusl) — women too, even during menses.</li>
+      <li>Men: perfume on the body and beard, <em>not</em> on the cloth.</li>
+      <li>Men: wear the two cloths. Women: normal loose, modest clothes in any colour.</li>
+      <li>If a prayer is due, pray it. There is no special "ihram prayer".</li>
+    </ol>
+
+    <div class="fig2">
+      <figure>
+        <svg class="dia" viewBox="0 0 300 330" role="img" aria-label="Man in ihram">
+          <!-- head -->
+          <circle cx="150" cy="52" r="26" fill="#E8E6DE" stroke="#17140F" stroke-width="2"/>
+          <!-- rida over both shoulders -->
+          <path d="M95 110 Q150 88 205 110 L215 190 L85 190 Z" fill="#fff" stroke="#17140F" stroke-width="2"/>
+          <!-- izar -->
+          <path d="M95 190 H205 L212 300 H88 Z" fill="#fff" stroke="#17140F" stroke-width="2"/>
+          <path d="M95 190 H205" stroke="#B08A2E" stroke-width="4"/>
+          <!-- arms -->
+          <path d="M95 118 L60 200" stroke="#17140F" stroke-width="2" fill="none"/>
+          <path d="M205 118 L240 200" stroke="#17140F" stroke-width="2" fill="none"/>
+          <!-- sandals -->
+          <path d="M100 302 h34 M166 302 h34" stroke="#17140F" stroke-width="5" stroke-linecap="round"/>
+          <text x="20" y="100" class="small">no cap, no hood</text>
+          <text x="20" y="200" class="small">belt is fine</text>
+          <text x="20" y="316" class="small">open sandals, no socks</text>
+          <text x="150" y="26" text-anchor="middle">Man</text>
+        </svg>
+        <figcaption>Two white unstitched cloths: upper (rida) over both shoulders, lower (izar) wrapped like a towel. No shirt, trousers, underwear, socks, or head cover.</figcaption>
+      </figure>
+      <figure>
+        <svg class="dia" viewBox="0 0 300 330" role="img" aria-label="Woman in ihram">
+          <path d="M150 20 Q100 30 96 100 L100 300 H200 L204 100 Q200 30 150 20 Z" fill="#3A3733" stroke="#17140F" stroke-width="2"/>
+          <ellipse cx="150" cy="62" rx="20" ry="24" fill="#E8E6DE"/>
+          <text x="20" y="80" class="small">face uncovered</text>
+          <text x="20" y="96" class="small">(no niqab)</text>
+          <text x="20" y="180" class="small">any plain colour</text>
+          <text x="20" y="196" class="small">white not required</text>
+          <text x="20" y="300" class="small">socks and shoes fine</text>
+          <text x="20" y="316" class="small">no gloves</text>
+          <text x="150" y="14" text-anchor="middle" style="font-size:13px">Woman</text>
+        </svg>
+        <figcaption>Regular modest clothing and hijab. Niqab and gloves come off. If men are close, she may drop a loose cloth over the face from above.</figcaption>
+      </figure>
+    </div>
+
+    <div class="say">
+      <div class="lbl">Say this — the intention</div>
+      <div class="arabic">لَبَّيْكَ اللَّهُمَّ عُمْرَةً</div>
+      <p class="tr">Labbayk Allāhumma ʿUmrah</p>
+      <p class="mean">Here I am, O Allah, for Umrah.</p>
+      <div class="note">Afraid of not being able to finish (illness, pregnancy)? Add: <em>Allāhumma maḥillī ḥaythu ḥabastanī</em> — "My exit from ihram is wherever You stop me." Then no penalty if you must stop.</div>
+    </div>
+
+    <div class="say">
+      <div class="lbl">Then keep repeating — the Talbiyah</div>
+      <div class="arabic">لَبَّيْكَ اللَّهُمَّ لَبَّيْكَ، لَبَّيْكَ لَا شَرِيكَ لَكَ لَبَّيْكَ، إِنَّ الْحَمْدَ وَالنِّعْمَةَ لَكَ وَالْمُلْكَ، لَا شَرِيكَ لَكَ</div>
+      <p class="tr">Labbayk Allāhumma labbayk, labbayka lā sharīka laka labbayk, innal-ḥamda wan-niʿmata laka wal-mulk, lā sharīka lak</p>
+      <p class="mean">Here I am, O Allah, here I am. Here I am, You have no partner, here I am. All praise, favour and sovereignty are Yours. You have no partner.</p>
+      <div class="note">Men aloud, women quietly. Each person on their own, not as a chorus. Stop when you start Tawaf.</div>
+    </div>
+
+    <h3>Now in ihram — until your hair is cut</h3>
+    <div class="dd">
+      <div class="dont"><strong>Not allowed</strong>
+        <ul>
+          <li>Cutting hair or nails</li>
+          <li>Perfume, scented soap, scented wipes</li>
+          <li>Intimacy, flirting, marriage contract</li>
+          <li>Hunting</li>
+          <li>Arguing, insulting, fighting</li>
+          <li>Men: stitched clothes, head cover</li>
+          <li>Women: niqab, gloves</li>
+        </ul>
+      </div>
+      <div class="do"><strong>Allowed — don't worry</strong>
+        <ul>
+          <li>Shower, unscented soap, change the cloth</li>
+          <li>Watch, glasses, ring, belt, bandage</li>
+          <li>Umbrella, shade, air-conditioning</li>
+          <li>Scratching, combing gently</li>
+          <li>Eating any halal food</li>
+          <li>Blanket at night (men: not over the head)</li>
+          <li>Phone, talking, resting</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="stop">
+      <strong>Beginner mistakes here</strong>
+      <ul>
+        <li>Crossing the Miqat and planning to "do ihram at the hotel".</li>
+        <li>Perfuming the cloth instead of the body.</li>
+        <li>Men wearing underwear or socks under the cloths.</li>
+        <li>Stopping the Talbiyah on reaching Makkah — it continues until Tawaf begins.</li>
+      </ul>
+    </div>
+    <p style="font-size:.9rem;color:var(--stone)">Broke a rule by forgetting? No penalty; stop when you remember. Deliberately? Fast 3 days, or feed 6 poor people, or sacrifice a sheep — any one.</p>
+  </div>
+</section>
+
+<!-- ================= STATION 2 ================= -->
+<section class="station" id="s2">
+  <div class="wrap">
+    <h2><span class="stnum">2</span>Enter the Haram <span class="tag sunnah">sunnah</span></h2>
+    <p class="where">Masjid al-Haram, Makkah. Any gate is fine.</p>
+
+    <ol class="steps">
+      <li>Make wudu first — you need it for Tawaf.</li>
+      <li>Shoes go in a bag you carry. Never leave them at the door.</li>
+      <li>Note your gate name and number. You'll need it to get out.</li>
+      <li>Enter right foot first and say the mosque dua.</li>
+      <li>Walk straight to the Kaaba. No "greeting prayer" here — Tawaf is the greeting.</li>
+    </ol>
+
+    <div class="say">
+      <div class="lbl">Say this — entering</div>
+      <div class="arabic">بِسْمِ اللهِ، وَالصَّلَاةُ وَالسَّلَامُ عَلَى رَسُولِ اللهِ، اللَّهُمَّ افْتَحْ لِي أَبْوَابَ رَحْمَتِكَ</div>
+      <p class="tr">Bismillāh, waṣ-ṣalātu was-salāmu ʿalā rasūlillāh, Allāhumma-ftaḥ lī abwāba raḥmatik</p>
+      <p class="mean">In the name of Allah, blessings and peace on the Messenger of Allah. O Allah, open for me the doors of Your mercy.</p>
+    </div>
+
+    <h3>First sight of the Kaaba <span class="tag free">your choice</span></h3>
+    <p>There is no fixed dua from the Prophet ﷺ for this moment. Raise your hands, say <em>Allāhu Akbar</em>, and ask for whatever you want — it is a moment when dua is answered. Then stop the Talbiyah and go to the Black Stone corner.</p>
+  </div>
+</section>
+
+<!-- ================= STATION 3 ================= -->
+<section class="station" id="s3">
+  <div class="wrap">
+    <h2><span class="stnum">3</span>Tawaf <span class="tag must">must</span></h2>
+    <p class="where">Around the Kaaba. Seven circuits, anti-clockwise, Kaaba on your left.</p>
+
+    <figure>
+      <svg class="dia" viewBox="0 0 640 520" role="img" aria-label="Top view of the Kaaba showing the direction of Tawaf and the key corners">
+        <!-- tawaf path -->
+        <circle cx="320" cy="250" r="185" fill="none" stroke="#E9DDB8" stroke-width="34"/>
+        <!-- direction arrows on the path -->
+        <g fill="#B08A2E">
+          <path d="M320 65 l-16 12 v-24 z" transform="rotate(0 320 65)"/>
+          <path d="M135 250 l12 16 h-24 z"/>
+          <path d="M320 435 l16 -12 v24 z"/>
+          <path d="M505 250 l-12 -16 h24 z"/>
+        </g>
+        <!-- Kaaba square rotated 45 -->
+        <g transform="rotate(45 320 250)">
+          <rect x="255" y="185" width="130" height="130" fill="#17140F"/>
+          <rect x="255" y="215" width="130" height="8" fill="#B08A2E"/>
+        </g>
+        <!-- Hijr: semicircle on top-left side (between Iraqi top and Shami left) -->
+        <path d="M274 204 A65 65 0 0 0 274 296" fill="none" stroke="#17140F" stroke-width="5" transform="rotate(-45 320 250)"/>
+        <text class="small" x="248" y="196" text-anchor="end">Hijr Ismail</text>
+        <text class="small" x="248" y="210" text-anchor="end">walk around it,</text>
+        <text class="small" x="248" y="224" text-anchor="end">never through it</text>
+
+        <!-- corners -->
+        <!-- Black stone: right -->
+        <circle cx="412" cy="250" r="9" fill="#17140F" stroke="#B08A2E" stroke-width="3"/>
+        <text x="432" y="238">Black Stone</text>
+        <text class="small" x="432" y="254">start &amp; finish here</text>
+        <text class="small" x="432" y="268">point, say Allāhu Akbar</text>
+        <!-- green light line -->
+        <path d="M425 250 H560" stroke="#1E7A4C" stroke-width="3" stroke-dasharray="6 5"/>
+        <rect x="560" y="240" width="18" height="20" rx="3" fill="#1E7A4C"/>
+        <text class="small" x="569" y="284" text-anchor="middle">green light</text>
+        <text class="small" x="569" y="298" text-anchor="middle">on the wall</text>
+
+        <!-- Yemeni: bottom -->
+        <circle cx="320" cy="342" r="7" fill="#17140F"/>
+        <text x="320" y="372" text-anchor="middle">Yemeni corner</text>
+        <text class="small" x="320" y="388" text-anchor="middle">touch if easy, otherwise nothing</text>
+        <!-- Shami: left -->
+        <circle cx="228" cy="250" r="5" fill="#17140F"/>
+        <text class="small" x="215" y="254" text-anchor="end">Shami</text>
+        <!-- Iraqi: top -->
+        <circle cx="320" cy="158" r="5" fill="#17140F"/>
+        <text class="small" x="320" y="146" text-anchor="middle">Iraqi</text>
+
+        <!-- door & maqam on the east face (between black stone and iraqi) -->
+        <rect x="372" y="200" width="10" height="16" fill="#B08A2E" transform="rotate(45 320 250)"/>
+        <text class="small" x="378" y="196">door</text>
+        <circle cx="405" cy="185" r="8" fill="none" stroke="#B08A2E" stroke-width="3"/>
+        <text class="small" x="418" y="180">Maqam Ibrahim</text>
+        <text class="small" x="418" y="194">(station 4)</text>
+
+        <!-- last stretch label -->
+        <path d="M330 420 A175 175 0 0 0 480 335" fill="none" stroke="#1E7A4C" stroke-width="4"/>
+        <text class="small" x="440" y="418">Yemeni corner → Black Stone:</text>
+        <text class="small" x="440" y="432">say "Rabbanā ātinā…"</text>
+
+        <text x="320" y="480" text-anchor="middle">Anti-clockwise. The Kaaba stays on your left the whole time.</text>
+        <text class="small" x="320" y="500" text-anchor="middle">Any floor of the mosque is valid — higher floors are just longer.</text>
+      </svg>
+      <figcaption>One circuit = Black Stone line → all the way round → Black Stone line. Count when you cross the line, not halfway.</figcaption>
+    </figure>
+
+    <h3>Before you start</h3>
+    <ul class="plain">
+      <li><strong>Wudu.</strong> Required. Women in menses wait until pure (see below).</li>
+      <li><strong>Men: bare the right shoulder</strong> (cloth under the right arm, over the left) — for this Tawaf only.</li>
+      <li>Stand in line with the Black Stone, using the green light on the far wall.</li>
+    </ul>
+
+    <div class="say">
+      <div class="lbl">Say this — at the Black Stone, start of every circuit</div>
+      <div class="arabic">بِسْمِ اللهِ، اللهُ أَكْبَرُ</div>
+      <p class="tr">Bismillāh, Allāhu Akbar</p>
+      <p class="mean">Kiss it only if it's easy. Otherwise touch it and kiss your hand. Otherwise — the normal case — just face it and point with your right palm. No kissing the hand after pointing.</p>
+    </div>
+
+    <div class="say">
+      <div class="lbl">Say this — between the Yemeni corner and the Black Stone, every circuit</div>
+      <div class="arabic">رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ</div>
+      <p class="tr">Rabbanā ātinā fid-dunyā ḥasanatan wa fil-ākhirati ḥasanatan wa qinā ʿadhāban-nār</p>
+      <p class="mean">Our Lord, give us good in this world and good in the Hereafter, and protect us from the punishment of the Fire.</p>
+    </div>
+
+    <h3>The rest of each circuit <span class="tag free">your choice</span></h3>
+    <p>There is no special dua for circuit one, two, or three. Booklets that give a different dua per circuit are made up. Use the time for your own dua in your own language, Qur'an, or dhikr — quietly, while walking.</p>
+
+    <div class="dd">
+      <div class="do"><strong>Do</strong>
+        <ul>
+          <li>Men: walk briskly with short steps for circuits 1–3, normally for 4–7. Skip it if crowded.</li>
+          <li>Keep moving at the crowd's pace.</li>
+          <li>Count on your fingers or a counter.</li>
+          <li>If prayer starts: pray, then continue from where you stopped.</li>
+          <li>Unsure if it was 5 or 6? Call it 5.</li>
+        </ul>
+      </div>
+      <div class="dont"><strong>Don't</strong>
+        <ul>
+          <li>Cut through the Hijr — that circuit doesn't count.</li>
+          <li>Push or fight to reach the Black Stone.</li>
+          <li>Kiss or point at the Yemeni corner or the other corners.</li>
+          <li>Rub the Kaaba's cloth for blessing.</li>
+          <li>Stop in the flow to pray or take photos.</li>
+          <li>Women: no brisk walking (raml).</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="counter" aria-live="polite">
+      <div class="pips" id="tawafPips"></div>
+      <div class="big" id="tawafNum">0</div>
+      <div class="state" id="tawafState">Tap when you cross the Black Stone line</div>
+      <button class="go" id="tawafGo">Crossed the line</button>
+      <button class="reset" id="tawafReset">Start over</button>
+    </div>
+
+    <h3>Women and monthly bleeding</h3>
+    <p>Enter ihram normally and do everything except Tawaf. Wait until pure, bathe, then Tawaf → Sa'i → hair. Ihram rules stay on until then. If your period begins <em>after</em> Tawaf, carry on with Sa'i — purity isn't needed for Sa'i.</p>
+
+    <div class="stop">
+      <strong>Beginner mistakes here</strong>
+      <ul>
+        <li>Reading a different booklet dua for each circuit, or following a leader shouting duas.</li>
+        <li>Starting the count somewhere other than the Black Stone line.</li>
+        <li>Walking around with the right shoulder bare for days afterwards.</li>
+        <li>Restarting the whole Tawaf after a prayer break — just resume.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= STATION 4 ================= -->
+<section class="station" id="s4">
+  <div class="wrap">
+    <h2><span class="stnum">4</span>Maqam Ibrahim &amp; Zamzam <span class="tag sunnah">sunnah</span></h2>
+    <p class="where">Right after the seventh circuit.</p>
+
+    <ol class="steps">
+      <li><strong>Men: cover both shoulders again.</strong></li>
+      <li>Walk to Maqam Ibrahim (the golden enclosure facing the Kaaba door) and recite the verse below.</li>
+      <li>Pray two short rak'ahs — al-Kafirun in the first, al-Ikhlas in the second. If the Maqam area is crowded, pray them <em>anywhere</em> in the mosque. Same reward.</li>
+      <li>Drink Zamzam from any dispenser. Say <em>Bismillāh</em>, face the Kaaba if you can, drink your fill, make dua.</li>
+      <li>If easy, go back and point to the Black Stone once more. Then head to Safa.</li>
+    </ol>
+
+    <div class="say">
+      <div class="lbl">Say this — arriving at the Maqam</div>
+      <div class="arabic">وَاتَّخِذُوا مِن مَّقَامِ إِبْرَاهِيمَ مُصَلًّى</div>
+      <p class="tr">Wattakhidhū min maqāmi Ibrāhīma muṣallā</p>
+      <p class="mean">And take the station of Ibrahim as a place of prayer. (2:125)</p>
+    </div>
+
+    <div class="say">
+      <div class="lbl">Dua with Zamzam <span class="tag free">your choice</span></div>
+      <div class="arabic">اللَّهُمَّ إِنِّي أَسْأَلُكَ عِلْمًا نَافِعًا، وَرِزْقًا وَاسِعًا، وَشِفَاءً مِنْ كُلِّ دَاءٍ</div>
+      <p class="tr">Allāhumma innī as'aluka ʿilman nāfiʿan, wa rizqan wāsiʿan, wa shifā'an min kulli dā'</p>
+      <p class="mean">O Allah, I ask You for beneficial knowledge, wide provision, and cure from every illness. — Zamzam is for whatever you drink it for; any dua works.</p>
+    </div>
+
+    <div class="stop">
+      <strong>Beginner mistakes here</strong>
+      <ul>
+        <li>Pushing into the Tawaf flow to pray exactly behind the Maqam.</li>
+        <li>Praying long rak'ahs there while hundreds wait.</li>
+        <li>Kissing or rubbing the Maqam's glass — it has no such virtue.</li>
+        <li>Walking in front of people praying.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= STATION 5 ================= -->
+<section class="station" id="s5">
+  <div class="wrap">
+    <h2><span class="stnum">5</span>Sa'i <span class="tag must">must</span></h2>
+    <p class="where">Between Safa and Marwah. Seven laps, start at Safa, finish at Marwah.</p>
+
+    <figure>
+      <svg class="dia" viewBox="0 0 640 380" role="img" aria-label="Diagram of the seven laps of Sa'i between Safa and Marwah">
+        <!-- corridor -->
+        <rect x="90" y="60" width="460" height="230" rx="8" fill="#F4F3EE" stroke="#E8E6DE"/>
+        <!-- green zone -->
+        <rect x="200" y="60" width="90" height="230" fill="#DCEEE3"/>
+        <text class="small" x="245" y="310" text-anchor="middle">green lights</text>
+        <text class="small" x="245" y="324" text-anchor="middle">men jog here</text>
+        <text class="small" x="245" y="338" text-anchor="middle">women walk</text>
+        <!-- hills -->
+        <path d="M30 290 Q60 200 90 290 Z" fill="#B08A2E"/>
+        <text x="60" y="318" text-anchor="middle" style="font-weight:700">Safa</text>
+        <text class="small" x="60" y="334" text-anchor="middle">start here</text>
+        <path d="M550 290 Q580 200 610 290 Z" fill="#B08A2E"/>
+        <text x="580" y="318" text-anchor="middle" style="font-weight:700">Marwah</text>
+        <text class="small" x="580" y="334" text-anchor="middle">finish here</text>
+        <!-- laps -->
+        <g stroke="#17140F" stroke-width="2" fill="none">
+          <path d="M100 82 H540" marker-end="url(#a2)"/>
+          <path d="M540 112 H100" marker-end="url(#a2)"/>
+          <path d="M100 142 H540" marker-end="url(#a2)"/>
+          <path d="M540 172 H100" marker-end="url(#a2)"/>
+          <path d="M100 202 H540" marker-end="url(#a2)"/>
+          <path d="M540 232 H100" marker-end="url(#a2)"/>
+          <path d="M100 262 H540" marker-end="url(#a2)"/>
+        </g>
+        <g style="font-weight:700">
+          <text x="320" y="77" text-anchor="middle" class="small">1</text>
+          <text x="320" y="107" text-anchor="middle" class="small">2</text>
+          <text x="320" y="137" text-anchor="middle" class="small">3</text>
+          <text x="320" y="167" text-anchor="middle" class="small">4</text>
+          <text x="320" y="197" text-anchor="middle" class="small">5</text>
+          <text x="320" y="227" text-anchor="middle" class="small">6</text>
+          <text x="320" y="257" text-anchor="middle" class="small">7</text>
+        </g>
+        <text x="320" y="366" text-anchor="middle">One direction = one lap. Safa→Marwah is 1, Marwah→Safa is 2 … the 7th ends at Marwah.</text>
+        <defs><marker id="a2" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#17140F"/></marker></defs>
+      </svg>
+      <figcaption>About 450 m each way, 3 km in total. Wudu isn't required. You can sit, rest, drink Zamzam, and continue where you stopped.</figcaption>
+    </figure>
+
+    <div class="say">
+      <div class="lbl">Say this — once only, as you approach Safa the first time</div>
+      <div class="arabic">إِنَّ الصَّفَا وَالْمَرْوَةَ مِن شَعَائِرِ اللهِ، فَمَنْ حَجَّ الْبَيْتَ أَوِ اعْتَمَرَ فَلَا جُنَاحَ عَلَيْهِ أَن يَطَّوَّفَ بِهِمَا، وَمَن تَطَوَّعَ خَيْرًا فَإِنَّ اللهَ شَاكِرٌ عَلِيمٌ</div>
+      <p class="tr">Innaṣ-Ṣafā wal-Marwata min shaʿā'irillāh… (2:158)</p>
+      <div class="arabic">أَبْدَأُ بِمَا بَدَأَ اللهُ بِهِ</div>
+      <p class="tr">Abda'u bimā bada'Allāhu bih</p>
+      <p class="mean">I begin with what Allah began with. — Not repeated on later laps.</p>
+    </div>
+
+    <h3>On Safa, and again on Marwah</h3>
+    <ol class="steps">
+      <li>Climb a little, face the Kaaba.</li>
+      <li>Raise your hands as in dua (palms up, not like the takbir of prayer).</li>
+      <li>Say <em>Allāhu Akbar</em> three times, then the dhikr below.</li>
+      <li>Make your own dua — long as you like.</li>
+      <li>Repeat dhikr and dua so the dhikr is said three times in all.</li>
+    </ol>
+
+    <div class="say">
+      <div class="lbl">Say this — on Safa and on Marwah</div>
+      <div class="arabic">لَا إِلَهَ إِلَّا اللهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ، لَا إِلَهَ إِلَّا اللهُ وَحْدَهُ، أَنْجَزَ وَعْدَهُ، وَنَصَرَ عَبْدَهُ، وَهَزَمَ الْأَحْزَابَ وَحْدَهُ</div>
+      <p class="tr">Lā ilāha illAllāhu waḥdahu lā sharīka lah, lahul-mulku wa lahul-ḥamdu wa huwa ʿalā kulli shay'in qadīr. Lā ilāha illAllāhu waḥdah, anjaza waʿdah, wa naṣara ʿabdah, wa hazamal-aḥzāba waḥdah</p>
+      <p class="mean">There is no god but Allah alone, with no partner. His is the dominion and the praise, and He has power over all things. There is no god but Allah alone; He kept His promise, gave victory to His servant, and defeated the confederates alone.</p>
+      <div class="note">Crowded? Shorten it. This part is Sunnah; the walking is what's required.</div>
+    </div>
+
+    <div class="say">
+      <div class="lbl">While walking <span class="tag free">your choice</span></div>
+      <div class="arabic">رَبِّ اغْفِرْ وَارْحَمْ إِنَّكَ أَنْتَ الْأَعَزُّ الْأَكْرَمُ</div>
+      <p class="tr">Rabbi-ghfir war-ḥam, innaka antal-aʿazzul-akram</p>
+      <p class="mean">My Lord, forgive and have mercy; You are the Mightiest, the Most Generous. — Or any dua, Qur'an, or dhikr.</p>
+    </div>
+
+    <div class="counter" aria-live="polite">
+      <div class="pips" id="saiPips"></div>
+      <div class="big" id="saiNum">0</div>
+      <div class="state" id="saiState">Tap when you reach the other hill</div>
+      <button class="go" id="saiGo">Reached Marwah</button>
+      <button class="reset" id="saiReset">Start over</button>
+    </div>
+
+    <div class="stop">
+      <strong>Beginner mistakes here</strong>
+      <ul>
+        <li>Starting from Marwah.</li>
+        <li>Counting there-and-back as one lap and doing fourteen.</li>
+        <li>Reciting the Safa verse on every lap.</li>
+        <li>Women running in the green zone; able men strolling through it.</li>
+        <li>Redoing Sa'i because wudu broke — it isn't needed.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= STATION 6 ================= -->
+<section class="station" id="s6">
+  <div class="wrap">
+    <h2><span class="stnum">6</span>Cut the hair <span class="tag must">must</span></h2>
+    <p class="where">Barbers are just outside the Marwah exit. Women: in private.</p>
+
+    <figure>
+      <svg class="dia" viewBox="0 0 640 260" role="img" aria-label="Correct and incorrect ways to cut hair after Umrah">
+        <!-- Man shave -->
+        <circle cx="110" cy="100" r="46" fill="#E8E6DE" stroke="#17140F" stroke-width="2"/>
+        <text x="110" y="180" text-anchor="middle" style="font-weight:700">Men: shave</text>
+        <text class="small" x="110" y="198" text-anchor="middle">best — prayed for 3×</text>
+        <!-- Man trim all over -->
+        <circle cx="270" cy="100" r="46" fill="#E8E6DE" stroke="#17140F" stroke-width="2"/>
+        <path d="M232 76 Q270 44 308 76" fill="none" stroke="#17140F" stroke-width="6" stroke-dasharray="5 4"/>
+        <text x="270" y="180" text-anchor="middle" style="font-weight:700">Men: trim all over</text>
+        <text class="small" x="270" y="198" text-anchor="middle">fine — every part of the head</text>
+        <!-- Man wrong -->
+        <circle cx="430" cy="100" r="46" fill="#E8E6DE" stroke="#B23A2E" stroke-width="2"/>
+        <path d="M392 76 Q430 44 468 76" fill="none" stroke="#17140F" stroke-width="6"/>
+        <path d="M425 58 l4 -8 M432 57 l4 -8" stroke="#B23A2E" stroke-width="3"/>
+        <line x1="395" y1="140" x2="465" y2="60" stroke="#B23A2E" stroke-width="4"/>
+        <text x="430" y="180" text-anchor="middle" style="font-weight:700;fill:#B23A2E">Not enough</text>
+        <text class="small" x="430" y="198" text-anchor="middle">a few hairs from one spot —</text>
+        <text class="small" x="430" y="212" text-anchor="middle">you are still in ihram</text>
+        <!-- Woman -->
+        <circle cx="570" cy="100" r="34" fill="#E8E6DE" stroke="#17140F" stroke-width="2"/>
+        <path d="M545 110 Q550 160 555 200 M595 110 Q590 160 585 200" stroke="#17140F" stroke-width="5" fill="none"/>
+        <path d="M548 196 H592" stroke="#B08A2E" stroke-width="4"/>
+        <text x="570" y="228" text-anchor="middle" style="font-weight:700">Women</text>
+        <text class="small" x="570" y="246" text-anchor="middle">fingertip length from the ends</text>
+      </svg>
+      <figcaption>Men: shave the whole head or shorten the whole head, starting from the right. Women: gather the hair and cut about 1–2 cm from the ends, in private. A woman never shaves.</figcaption>
+    </figure>
+
+    <p><strong>The moment the hair is cut, ihram ends.</strong> Perfume, normal clothes, nails — everything is allowed again. Your Umrah is complete.</p>
+
+    <div class="stop">
+      <strong>Beginner mistakes here</strong>
+      <ul>
+        <li>Changing into normal clothes in the hotel <em>before</em> the haircut "to get comfortable".</li>
+        <li>Snipping three hairs and calling it done.</li>
+        <li>Women cutting in public, or from the front only.</li>
+        <li>Trimming the beard instead of the head.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= AFTER ================= -->
+<section class="station">
+  <div class="wrap">
+    <h2>After Umrah <span class="tag free">no fixed order</span></h2>
+    <p>None of this is part of Umrah. Do what you can, in any order.</p>
+    <ul class="plain">
+      <li><strong>Extra Tawaf</strong> — any time, as often as you like; it's the special worship of Makkah. Two rak'ahs after each.</li>
+      <li><strong>Every prayer in the Haram</strong> — arrive early; it fills up long before the adhan.</li>
+      <li><strong>Sit and look at the Kaaba</strong>, read Qur'an, make dua. Late night is quiet.</li>
+      <li><strong>Repeating Umrah from Tan'eem</strong> — scholars differ; many say extra Tawaf is better. Don't turn it into a number race.</li>
+      <li><strong>Madinah</strong> — pray in the Prophet's Mosque, greet him ﷺ with <em>As-salāmu ʿalayka yā Rasūlallāh</em>, then Abu Bakr and Umar. Make your dua facing the Qibla, not the grave. Book the Rawdah early. Pray two rak'ahs at Quba with wudu made at your hotel.</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="ar">عُمْرَةً مَقْبُولَةً وَذَنْبًا مَغْفُورًا</p>
+    <p>May your Umrah be accepted and your sins forgiven. Where scholars differ on a detail, this guide follows the most widely taught view — ask a scholar you trust for your own situation.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  function makeCounter(opts){
+    var n=0, pips=document.getElementById(opts.pips), num=document.getElementById(opts.num),
+        state=document.getElementById(opts.state), go=document.getElementById(opts.go), reset=document.getElementById(opts.reset);
+    for(var i=0;i<7;i++){var s=document.createElement('i');pips.appendChild(s);}
+    function draw(){
+      num.textContent=n;
+      var ps=pips.querySelectorAll('i');
+      for(var i=0;i<7;i++){ps[i].className=i<n?'on':'';}
+      if(n>=7){state.textContent=opts.done;go.disabled=true;go.textContent='Complete';}
+      else{state.textContent=opts.mid(n);go.disabled=false;go.textContent=opts.btn(n);}
+    }
+    go.addEventListener('click',function(){if(n<7){n++;draw();}});
+    reset.addEventListener('click',function(){n=0;draw();});
+    draw();
+  }
+  makeCounter({
+    pips:'tawafPips',num:'tawafNum',state:'tawafState',go:'tawafGo',reset:'tawafReset',
+    mid:function(n){return n===0?'Tap when you cross the Black Stone line':'Circuits done: '+n+' — keep the Kaaba on your left';},
+    btn:function(){return 'Crossed the line';},
+    done:'Seven circuits done. Men: cover both shoulders. Go to Maqam Ibrahim.'
+  });
+  makeCounter({
+    pips:'saiPips',num:'saiNum',state:'saiState',go:'saiGo',reset:'saiReset',
+    mid:function(n){return n===0?'You are at Safa. Walk to Marwah.':(n%2===1?'You are at Marwah. Walk to Safa.':'You are at Safa. Walk to Marwah.');},
+    btn:function(n){return n%2===0?'Reached Marwah':'Reached Safa';},
+    done:'Seven laps done — you are at Marwah. Now cut your hair.'
+  });
+})();
+</script>
+</body>
+</html>
